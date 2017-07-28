@@ -58,6 +58,47 @@ CREATE TABLE `application` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `application_change`
+--
+
+DROP TABLE IF EXISTS `application_change`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `application_change` (
+  `id` bigint(20) NOT NULL,
+  `course` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(300) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mobile` bigint(20) NOT NULL,
+  `dob` date NOT NULL,
+  `catagory` varchar(10) NOT NULL,
+  `sex` varchar(1) NOT NULL,
+  `bsc` varchar(30) NOT NULL,
+  `university` varchar(100) NOT NULL,
+  `year` int(11) NOT NULL,
+  `final_marks_obtained` int(11) NOT NULL,
+  `final_marks_max` int(11) NOT NULL,
+  `final_year_SGPA` float NOT NULL,
+  `5th_sem_marks` int(11) NOT NULL,
+  `5th_sem_marks_max` int(11) NOT NULL,
+  `6th_sem_marks` int(11) NOT NULL,
+  `6th_sem_marks_max` int(11) NOT NULL,
+  `5th_sem_SGPA` float NOT NULL,
+  `6th_sem_SGPA` float NOT NULL,
+  `attempt` int(11) NOT NULL,
+  `locked` int(11) NOT NULL,
+  `verify` int(11) NOT NULL,
+  `merit1` int(11) NOT NULL,
+  `selected1` int(11) NOT NULL,
+  `merit2` int(11) NOT NULL,
+  `selected2` int(11) NOT NULL,
+  `remark` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `user`
 --
 
@@ -80,4 +121,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-29 21:22:24
+-- Dump completed on 2017-07-28 11:14:39
