@@ -54,7 +54,7 @@ function information()
 		$dob_proof='Proof of Date of birth: e.g. School Leaving Certificate/Birth Certificate/SSC Passing Certificate';
 		$bsc_proof='BSc Degree Certificate/ BSc Provisional Degree Certificate';
 		$marks_proof='Final year BSc marks or grade sheet / 5th and 6th Semester marks or grade sheet';
-		$attempt_proof='Attempt certificate from university';
+		//$attempt_proof='Attempt certificate from university';
 		$catagory_proof='SC/ST/SEBC caste certificate and Non-creamy Layer certificate for SEBC valid on last date of application';
 		$attachment='<ul><b>Required Documents:</b><li>'.$photo_id_proof.'</li><li>'.$dob_proof.'</li><li>'.$bsc_proof.'</li>
 		<li>'.$marks_proof.'</li><li>'.$attempt_proof.'</li><li>'.$catagory_proof.'</li></ul>';
@@ -106,7 +106,7 @@ $str=$str.' <table width="100%">
 	<tr>
 		<td width="10%"><img src="college_logo.jpg" style="height:50;width:50;"></td>
 			<td width="80%" align="center">
-			<h3  align=center>Online application, 30th Lab/X-Ray technician training course (2017-18) <br>
+			<h3  align=center>Online application, 32nd Lab/X-Ray technician training course (2019-20) <br>
 			Government Medical College Surat</h3></td>
 		<td width="10%"><img src="guj.jpg" style="height:50;width:50;"></td>
 	</tr></table><br><br><br>';
@@ -159,13 +159,13 @@ $str= $str.'
 					<td width="12%" align="center"><b>Year<br> of <br>Passing</b></td>
 					<td width="18%" align="center"><b>Subject</b></td>
 					<td width="35%" align="center"><b>Marks/Grade</b></td>
-					<td width="12%" align="center"><b>Attempt</b></td></tr>
+				</tr>
 			<tr><td align="center">BSc</td>
 			<td align="center">'.$dt['university'].'</td>
 			<td align="center">'.$dt['year'].'</td>
 			<td align="center">'.$dt['bsc'].'</td>
 			<td align="center">'.$mcell.'</td>
-			<td align="center">'.$dt['attempt'].'</td></tr>
+			</tr>
 			</table>';
 		
 $str=$str.'<ol>
@@ -184,7 +184,7 @@ $str=$str.'<tr><td>Date:</td><td></td><td align="right">Signature of Applicant</
                 $dob_proof='Proof of Date of birth: e.g. School Leaving Certificate/Birth Certificate/SSC Passing Certificate';
                 $bsc_proof='BSc Degree Certificate/ BSc Provisional Degree Certificate';
                 $marks_proof='Final year BSc marks or grade sheet / 5th and 6th Semester marks or grade sheet';
-                $attempt_proof='Attempt certificate from university';
+                //$attempt_proof='Attempt certificate from university';
                 $catagory_proof='SC/ST/SEBC caste certificate, Physically handicapped and Non-creamy Layer certificate for SEBC valid on last date for application';
                 $attachment='<ul><b>Required Documents:</b><li>'.$photo_id_proof.'</li><li>'.$dob_proof.'</li><li>'.$bsc_proof.'</li>
                 <li>'.$marks_proof.'</li><li>'.$attempt_proof.'</li><li>'.$catagory_proof.'</li></ul>';
