@@ -2795,7 +2795,7 @@ function pdf_tail()
 	     <tr><th width="4%">3.</th><td width="96%">I hearby apply to impart my services in case of epidemic/pandemic/disaster and/or as and when called upon by the department/institution </td></tr>
 	     <tr><th width="4%">4.</th><td width="96%">All infomation provided by me are correct.I understand that I will be debarred from admission process and training,if found to provide incorrect infromation.</td></tr>
 	     <tr><th width="4%">5.</th><td width="96%">I will submit all required original documents for verification during submission of this application in person.</td></tr>
-             <tr><th width="4%">6.</th><td width="96%">Photocopies of all required original documents are attached with admission from.</td></tr>
+             <tr><th width="4%">6.</th><td width="96%">Photocopies of all required original documents are attached with application form.</td></tr>
 	     <tr><td width="70%"></td><td width="30%"><br><br>___________________________</td></tr>
 	     <tr><td width="70%"></td><td width="30%">Signature of Applicant<br></td></tr>
 	    </table>';

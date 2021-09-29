@@ -20,8 +20,6 @@ else
 
 	echo 'Registration and Application will be open on 2021-10-01 at 11:00 AM';
 	exit(0);
-}
-
 if(isset($_SESSION))
 {
 	session_unset();
