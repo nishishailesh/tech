@@ -63,6 +63,53 @@ CREATE TABLE `application` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `copy_application`
+--
+
+DROP TABLE IF EXISTS `copy_application`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `copy_application` (
+  `id` bigint(20) NOT NULL,
+  `course` enum('Lab Tech','XRay Tech','Both') DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `address` varchar(300) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `mobile` bigint(20) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `catagory` enum('OPEN','SEBC','SC','ST','EWS') DEFAULT NULL,
+  `physically_handicapped` enum('N','Y') DEFAULT NULL,
+  `sex` enum('M','F','O') DEFAULT NULL,
+  `bsc` enum('Biochemistry','Chemistry','Biotechnology','Microbiology','Physics','Other') DEFAULT NULL,
+  `university` varchar(100) DEFAULT NULL,
+  `final_year_marks_obtained` int(11) DEFAULT NULL,
+  `final_year_marks_max` int(11) DEFAULT NULL,
+  `final_year_SGPA` float DEFAULT NULL,
+  `5th_sem_marks_obtained` int(11) DEFAULT NULL,
+  `5th_sem_marks_max` int(11) DEFAULT NULL,
+  `6th_sem_marks_obtained` int(11) DEFAULT NULL,
+  `6th_sem_marks_max` int(11) DEFAULT NULL,
+  `5th_sem_SGPA` float DEFAULT NULL,
+  `6th_sem_SGPA` float DEFAULT NULL,
+  `_photo_id_proof` mediumblob DEFAULT NULL,
+  `_photo_id_proof_name` varchar(60) DEFAULT NULL,
+  `_date_of_birth_proof` mediumblob DEFAULT NULL,
+  `_date_of_birth_proof_name` varchar(60) DEFAULT NULL,
+  `_bsc_mark_or_grade_1` mediumblob DEFAULT NULL,
+  `_bsc_mark_or_grade_1_name` varchar(60) DEFAULT NULL,
+  `_bsc_mark_or_grade_2` mediumblob DEFAULT NULL,
+  `_bsc_mark_or_grade_2_name` varchar(60) DEFAULT NULL,
+  `_category_certificate` mediumblob DEFAULT NULL,
+  `_category_certificate_name` varchar(60) DEFAULT NULL,
+  `_non_creamy_layer` mediumblob DEFAULT NULL,
+  `_non_creamy_layer_name` varchar(60) DEFAULT NULL,
+  `_physically_handicapped_cert` mediumblob DEFAULT NULL,
+  `_physically_handicapped_cert_name` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `labcode`
 --
 
@@ -169,4 +216,4 @@ CREATE TABLE `xraycode` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-29 17:34:26
+-- Dump completed on 2022-07-08 22:59:51

@@ -106,7 +106,7 @@ $str=$str.' <table width="100%">
 	<tr>
 		<td width="10%"><img src="college_logo.jpg" style="height:50;width:50;"></td>
 			<td width="80%" align="center">
-			<h3  align=center>Online application, 32nd Lab/X-Ray technician training course (2019-20) <br>
+			<h3  align=center>Online application, 35nd Lab/X-Ray technician training course (2022-23) <br>
 			Government Medical College Surat</h3></td>
 		<td width="10%"><img src="guj.jpg" style="height:50;width:50;"></td>
 	</tr></table><br><br><br>';

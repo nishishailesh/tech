@@ -2776,8 +2776,8 @@ function pdf_head()
 	echo '<table >
 	<tr><br>
 	  <td width="20%"> <img src="college_logo.jpg" alt="college logo"><br> </td>
-	  <td width="60%" align="center"><h3><br> Online application<br> 33rd Lab/X-Ray Technician <br>
-	                         Training course(2020-21)<br>
+	  <td width="60%" align="center"><h3><br> Online application<br> 35th Lab/X-Ray Technician <br>
+	                         Training course(2022-23)<br>
 	                     Government Medical College Surat</h3>
 	  </td>
 	  <td width="20%"border="1" align="center"><h4><br><br><br>Self Attested<br> photograph</h4></td>
@@ -2878,7 +2878,7 @@ function send_sms($sms,$num)
 
 	$context  = stream_context_create($opts);
 	//echo $str;
-	$ret=file_get_contents($str,false,$context);
+ 	$ret=file_get_contents($str,false,$context);
 	return $ret;
 }
 
