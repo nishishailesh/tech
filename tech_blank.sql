@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.5.11-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.19  Distrib 10.5.15-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: tech
 -- ------------------------------------------------------
--- Server version	10.5.11-MariaDB-1
+-- Server version	10.5.15-MariaDB-0+deb11u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -145,7 +145,7 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` bigint(11) NOT NULL,
+  `id` varchar(200) NOT NULL,
   `password` varchar(300) DEFAULT NULL,
   `expirydate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -216,4 +216,4 @@ CREATE TABLE `xraycode` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-08 22:59:51
+-- Dump completed on 2022-07-09  9:52:38

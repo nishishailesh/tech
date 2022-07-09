@@ -1,12 +1,10 @@
 #!/bin/bash
 ####if root password
-echo 'Give mysql password'
-read password
+echo 'Give mysql username'
+read username
 
 ####if root password
-mysqldump  -d -uroot tech -p$password > tech_blank.sql
-####if unix plugin , as root
-####mysqldump  -d cl_general > cl_general_blank.sql
+mysqldump  -d -u$username tech -p > tech_blank.sql
 
 git add *
 git commit -a

@@ -66,14 +66,15 @@ if(isset($_GET['message']))
                                 <div class='text-danger text-center'><h3>".$message."</h3></div>
                         </div>
                 </div>"; 
+
 echo'<div class="row">
-			<div class="col-sm-6 bg-light mx-auto">';
+			<div class="col-sm-4 bg-light mx-auto">';
 					
 		echo'<div class="row">
 					<div class="col-sm-12 bg-light mx-auto bordered bordered-dark">
 						<form method=post action=start.php>
 							<div class="form-group">
-								<h2 class="text-info text-center  bg-dark">Login</h2>
+								<h4 class="text-info text-center  bg-dark">Login</h4>
 							</div>
 							<div class="form-group">
 								<label for=user>Login ID</label>
@@ -93,8 +94,8 @@ echo'<div class="row">
 
 echo '</div>';
 
-
-echo '<div class="col-sm-6 bg-dark mx-auto">';
+/*
+echo '<div class="col-sm-4 bg-dark mx-auto">';
 		echo'<div class="row">
 			<div class="col-sm-12 mx-auto">
 				<form method=post action=register.php>
@@ -114,9 +115,35 @@ echo '<div class="col-sm-6 bg-dark mx-auto">';
 					<span class="text-warning bg-dark">For course related inquiry call 0261-2208349 (Establishment Section)</span>
 				</form>
 			</div>
-		</div>
-';
-echo '</div></div>';
+		</div>';
+echo '</div>';
+
+*/
+
+echo '<div class="col-sm-4 bg-dark mx-auto">';
+		echo'<div class="row">
+			<div class="col-sm-12 mx-auto">
+				<form method=post action=register_email.php>
+					<div class="form-group">
+						<h4 class="text-info text-center  bg-dark">Register/Forgot Password</h4>
+					</div>
+					<div class="form-group">
+						<label for=email class="text-light" >email ID</label>
+						<input  class="form-control" id=email type=text name=email placeholder=email>
+					</div>
+					<div class="form-group">						
+						<button class="btn btn-info btn-block" type=submit name=action value=register_email>Send Password by email</button>
+					</div>
+					<h4 class="text-info text-center  bg-dark">email will be your login ID</h4>
+					<h4 class="text-info text-center  bg-dark">Password will be sent to your email</h4>
+					<h4><span class="text-danger bg-dark">For login problem/email not received call 0261-2208715 (ServerRoom)</span><br>
+					<span class="text-warning bg-dark">For course related inquiry call 0261-2208349 (Establishment Section)</span></h4>
+				</form>
+			</div>
+		</div>';
+echo '</div>';
+
+echo '</div>';
 
 		echo'<div class="row">
 			<div class="col-sm-12 mx-auto">';

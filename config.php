@@ -34,4 +34,8 @@ if(isset($_SESSION['login']))
 	$GLOBALS['default']=array('id'=>$_SESSION['login']);
 	//$GLOBALS['default']=array();
 }
+
+$GLOBALS['send_email']=1;
+//$GLOBALS['email_database_server']='11.207.1.2';
+$GLOBALS['email_database_server']='127.0.0.1';
 ?>

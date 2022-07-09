@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'config.php';
+error_reporting(E_ALL ^ E_WARNING ^ E_DEPRECATED);
+
 require_once '/var/gmcs_config/staff.conf';
 require_once 'common_table_function.php';
 require_once('tcpdf/tcpdf.php'); //if in /usr/share/php folder
