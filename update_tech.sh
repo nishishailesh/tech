@@ -8,4 +8,4 @@ mysqldump  -d -u$username tech -p > tech_blank.sql
 
 git add *
 git commit -a
-git push https://github.com/nishishailesh/tech master
+git push https://github.com/nishishailesh/tech  main
