@@ -97,8 +97,14 @@ For XRay technician course, BSc in any subject is acceptable, however, applicant
 }
 if($action=='save')
 {
-
-	save($link,$d,$t,$_POST,$_FILES);
+	if(!is_application_verified($link,$d,$_POST['id']))
+	{
+		save($link,$d,$t,$_POST,$_FILES);
+	}
+	else
+	{
+		echo '<h3>Application verified. Can not be changed. Contact office if required</h3>';
+	}
 	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);	
 }
 elseif($action=='insert')
@@ -194,9 +200,13 @@ elseif($action=='print_label')
 
 
 
-function check_verification_status($link,$application_id)
+function is_application_verified($link,$d,$application_id)
 {
-
+	$sql='select * from verification where id=\''.$application_id.'\'';
+	$result=run_query($link,$d,$sql);
+	$ar=get_single_row($result);
+	if($ar['serial_number']>0){return true;}
+	else{return false;}
 }
 
 tail();
