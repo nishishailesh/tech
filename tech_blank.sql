@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.5.15-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.19  Distrib 10.5.11-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: tech
 -- ------------------------------------------------------
--- Server version	10.5.15-MariaDB-0+deb11u1
+-- Server version	10.5.11-MariaDB-1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `application`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `application` (
-  `id` bigint(20) NOT NULL,
+  `id` varchar(200) NOT NULL,
   `course` enum('Lab Tech','XRay Tech','Both') DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `address` varchar(300) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `mobile` bigint(20) DEFAULT NULL,
+  `mobile` varchar(200) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `catagory` enum('OPEN','SEBC','SC','ST','EWS') DEFAULT NULL,
   `physically_handicapped` enum('N','Y') DEFAULT NULL,
@@ -138,6 +138,42 @@ CREATE TABLE `qr` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `record_tables`
+--
+
+DROP TABLE IF EXISTS `record_tables`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `record_tables` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(100) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `recording_time` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `recorded_by` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `table_field_specification`
+--
+
+DROP TABLE IF EXISTS `table_field_specification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `table_field_specification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tname` varchar(100) DEFAULT NULL,
+  `fname` varchar(100) DEFAULT NULL,
+  `ftype` varchar(50) DEFAULT NULL,
+  `table` varchar(50) DEFAULT NULL,
+  `field` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tname_fname` (`tname`,`fname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `user`
 --
 
@@ -160,21 +196,12 @@ DROP TABLE IF EXISTS `verification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `verification` (
-  `id` bigint(20) NOT NULL,
-  `serial_number` int(11) NOT NULL,
-  `photo_id_verified` enum('y','n') NOT NULL,
-  `dob_verified` enum('y','n') NOT NULL,
-  `catagory_verified` enum('NA','y','n') NOT NULL,
-  `non_creamy_verified` enum('NA','y','n') NOT NULL,
-  `ph_verified` enum('NA','y','n') NOT NULL,
-  `attempt_verified` enum('y','n') NOT NULL,
-  `marks_grade_verified` enum('y','n') NOT NULL,
-  `persantage` decimal(10,0) NOT NULL,
-  `eligible` enum('y','n') NOT NULL,
-  `authority` enum('','self','non-self') NOT NULL,
-  `remark` varchar(300) NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `verification_ibfk_1` FOREIGN KEY (`id`) REFERENCES `application` (`id`)
+  `id` varchar(200) NOT NULL,
+  `serial_number` int(11) DEFAULT NULL,
+  `remark` varchar(300) DEFAULT NULL,
+  `recording_time` datetime DEFAULT NULL,
+  `recorded_by` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -216,4 +243,4 @@ CREATE TABLE `xraycode` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-09  9:55:21
+-- Dump completed on 2022-07-15 18:43:11

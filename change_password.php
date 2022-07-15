@@ -20,14 +20,14 @@ if(isset($_POST['action']))
 		//check if two new paswords are same
 		if($_POST['password_1']!=$_POST['password_2'])
 		{
-			$message="message=Change password failed!!... New Password mismatch";
+			$message="message=Change password failed!!... New Passwords mismatch";
 			header("location:index.php?".$message);
 			exit(0);
 		}
 		//check for password requirements
 		if(!is_valid_password($_POST['password_1']))
 		{
-			$message="message=Change password failed!!... >8, 1Cap, 1Num, 1 Special";
+			$message="message=Change password failed!!... >8, 1Cap, 1Num, 1 Special example: Capital@123";
 			header("location:index.php?".$message);
 			exit(0);
 		}
@@ -65,7 +65,7 @@ if(isset($_POST['action']))
 		}
 		else
 		{
-			$message="message=Password changed successfully. Re login!!";
+			$message="message=Password changed successfully. Re login using new password!!";
 			header("location:index.php?".$message);
 			exit(0);
 		}

@@ -34,13 +34,13 @@ if($_POST['action']=='register_email')
 							values(\''.$_POST['email'].'\',\''.$_POST['email'].'\')
 							on duplicate key update
 							email=\''.$_POST['email'].'\'';			
-			echo $sql_app;
+			//echo $sql_app;
 			$result=run_query($link,'tech',$sql_app);
 
-			echo '<h3 class="bg-danger text-success">email Sent. Registration Successful.</h3>';
+			echo '<h4 class="text-danger text-success">Registration successful<br>Initial Password Sent to email. <br>email will be username.<br>Note: Password change required on first login</h4>';
 			echo '<form method=post action=index.php>';
 			echo '<button class="btn btn-info" type=submit name=action value=nothing>';
-					echo '<span class="badge badge-danger">Home</span>';
+					echo '<span class="badge badge-danger">Login</span>';
 			echo '</button>';
 			echo '</form>';
 		}
@@ -73,7 +73,7 @@ function save_email($emailid,$comment,$sms=0)
 	$sql='INSERT INTO email(`to`,`subject`,`content`,`sent`,sms,sms_sent)
 	 	VALUES (\''.$emailid.'\',\'password from gmcsurat\',\''.
 	 	my_safe_string($main_server_link,$comment).'\',0,\''.$sms.'\',0)';
-	echo $sql;
+	//echo $sql;
 	if(!run_query($main_server_link,'email',$sql))
 	{
 		echo '<span class="text-danger">save_email():email not sent</span><br>';

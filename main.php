@@ -50,7 +50,7 @@ $dk=get_dependant_table($link,$d,$t);
 
 //if primary key is to be made readonly, it must be autoincrement
 //autoincrement and default are readonly
-$pk=get_primary_key($link,$d,$t);	
+$pk=get_primary_key($link,$d,$t);
 $pka=array();
 $pka_value=false;
 
@@ -67,11 +67,11 @@ foreach($pk as $pk_key)
 	}
 }
 
-if($action=='download')									
-{														
-	download($link,$d,$t,$_POST['blob_field'],$pka);	
-	exit(0);											
-}																	
+if($action=='download')
+{
+	download($link,$d,$t,$_POST['blob_field'],$pka);
+	exit(0);
+}
 
 if(isset($_POST['offset']))
 {
@@ -97,6 +97,7 @@ For XRay technician course, BSc in any subject is acceptable, however, applicant
 }
 if($action=='save')
 {
+
 	save($link,$d,$t,$_POST,$_FILES);
 	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);	
 }
@@ -108,73 +109,72 @@ elseif($action=='show_single_by_pk')
 {
 	show_search_rows_by_pka_full($link,$d,$t,$pka);
 }
-elseif($action=='edit')										
-{						
+elseif($action=='edit')
+{
 	$ar=array('id'=>$_SESSION['login']);
-	$sql_app='insert into application (id,mobile) 
+	//$sql_app='insert into application (id,mobile) 
+	//						values(\''.$ar['id'].'\',\''.$ar['id'].'\')
+	//						on duplicate key update
+	//						mobile=\''.$ar['id'].'\'';
+	//$result=run_query($link,'tech',$sql_app);
+	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);
+}
+elseif($action=='delete')
+{
+	delete($link,$d,$t,$pka);
+	$ar=array('id'=>$_SESSION['login']);
+	$sql_app='insert into application (id,mobile)
 							values(\''.$ar['id'].'\',\''.$ar['id'].'\')
 							on duplicate key update
-							mobile=\''.$ar['id'].'\'';			
-	$result=run_query($link,'tech',$sql_app);									
-	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);			
-}															
-elseif($action=='delete')									
-{															
-	delete($link,$d,$t,$pka);	
-	$ar=array('id'=>$_SESSION['login']);
-	$sql_app='insert into application (id,mobile) 
-							values(\''.$ar['id'].'\',\''.$ar['id'].'\')
-							on duplicate key update
-							mobile=\''.$ar['id'].'\'';			
-	$result=run_query($link,'tech',$sql_app);						
-	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);	
-}	
-														
-elseif($action=='print_pdf')									
-{					
+							mobile=\''.$ar['id'].'\'';
+	$result=run_query($link,'tech',$sql_app);
+	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);
+}
+
+elseif($action=='print_pdf')
+{
 	if(validate($link,$d,$t,$GLOBALS['default']))
-	{		
-		//echo'<table><tr><td width="66%">';							
+	{
+		//echo'<table><tr><td width="66%">';
 		print_pdf_v($link,$d,$t,mk_select_sql_from_default($link,$d,$t,$GLOBALS['default']));
 		//echo'</td><td width="34%" border="1"></td></tr></table>';
-		exit(0);							
+		exit(0);
 	}
 	else
 	{
 		echo 'validataion failed. Complate application before printing';
 	}
-
 }
-elseif($action=='new')									
-{															
-	add($link,$d,$t,$GLOBALS['default'],'display:block;');									
-}	
+elseif($action=='new')
+{
+	add($link,$d,$t,$GLOBALS['default'],'display:block;');
+}
 elseif($action=='show_horizontal_all')
-{	
+{
 	show_horizontal_all($link,$d,$t,$offset,$GLOBALS['limit'],$GLOBALS['default']);
 }
-elseif($action=='search')									
-{															
-	search($link,$d,$t,$GLOBALS['default']);							
+elseif($action=='search')
+{
+	search($link,$d,$t,$GLOBALS['default']);
 }
-elseif($action=='show_all_rows')									
-{		
-	show_all_rows($link,$d,$t,$offset,$GLOBALS['limit'],$GLOBALS['default']);													
+elseif($action=='show_all_rows')
+{
+	show_all_rows($link,$d,$t,$offset,$GLOBALS['limit'],$GLOBALS['default']);
 }
-elseif($action=='show_search_details')									
-{		
-	show_search_rows_by_pka($link,$d,$t,$pka);	
+elseif($action=='show_search_details')
+{
+	show_search_rows_by_pka($link,$d,$t,$pka);
 	show_dependent_rows($link,$d,$t,$pka);
-	add_dependent_rows($link,$d,$t,$pka);												
+	add_dependent_rows($link,$d,$t,$pka);
 }
-elseif($action=='show_search_rows')									
-{		
-	show_search_rows($link,$d,$t,$_POST);													
+elseif($action=='show_search_rows')
+{
+	show_search_rows($link,$d,$t,$_POST);
 }
 
 /////PDF labels////////
-elseif($action=='generate_pdf')									
-{	
+elseif($action=='generate_pdf')
+{
 		if($_POST['from']<= $_POST['to'])
 		{
 			$pdf=initialize_pdf();
@@ -182,15 +182,22 @@ elseif($action=='generate_pdf')
 			$pdf->Output($_SESSION['login'].'pdf', 'I');
 		}
 }
-elseif($action=='help')									
+elseif($action=='help')
 {
 		help();
 }
-elseif($action=='print_label')									
+elseif($action=='print_label')
 {
 		get_items($d,$t);
 }
 
+
+
+
+function check_verification_status($link,$application_id)
+{
+
+}
 
 tail();
 ?>

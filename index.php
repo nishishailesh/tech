@@ -2,11 +2,11 @@
 //exit(0);
 //echo ' Last date over. This  application is closed.';
 //exit(0);
-echo 'Online Registration and Application is open on only between 2022-07-10 at 11:00 AM to 2022-07-18 17:00';
-echo '<h1 style="color:red">If you apply before prescribed time, your application will be deleted on 2022-07-10 11:00 AM</h1';
+echo '<p class="text-center">Online Registration and Application is open on only between 2022-07-10 at 11:00 AM to 2022-07-18 17:00</p>';
+//echo '<h1 style="color:red">If you apply before prescribed time, your application will be deleted on 2022-07-10 11:00 AM</h1>';
 
 $date_now = new DateTime();
-$date2 = new DateTime("2022-06-10 11:00");
+$date2 = new DateTime("2022-07-10 11:00");
 $date3 = new DateTime("2022-07-18 17:00");
 //print_r($date_now);
 //print_r($date2);
@@ -22,7 +22,7 @@ else
                 </div>';
 
 	echo 'Online Registration and Application is open on only between 2022-07-10 at 11:00 AM to 2022-07-18 17:00';
-	echo '<h1 style="color:red">If you apply before prescribed time, your application will be deleted on 2022-07-10 11:00 AM</h1';
+	//echo '<h1 style="color:red">If you apply before prescribed time, your application will be deleted on 2022-07-10 11:00 AM</h1>';
 	exit(0);
 }
 
@@ -62,8 +62,8 @@ if(isset($_GET['message']))
 }
 
         echo "<div class='row'>
-                        <div class='col-*-6 mx-auto'>
-                                <div class='text-danger text-center'><h3>".$message."</h3></div>
+                        <div class='col-*-6 mx-auto jumbotron'>
+                                <div class='text-danger text-center'><h1>".$message."</h1></div>
                         </div>
                 </div>"; 
 
@@ -131,11 +131,11 @@ echo '<div class="col-sm-4 bg-dark mx-auto">';
 						<label for=email class="text-light" >email ID</label>
 						<input  class="form-control" id=email type=text name=email placeholder=email>
 					</div>
-					<div class="form-group">						
+					<div class="form-group">
 						<button class="btn btn-info btn-block" type=submit name=action value=register_email>Send Password by email</button>
 					</div>
-					<h4 class="text-info text-center  bg-dark">email will be your login ID</h4>
-					<h4 class="text-info text-center  bg-dark">Password will be sent to your email</h4>
+					<h4 class="text-info bg-dark">email will be your login ID</h4>
+					<h4 class="text-info bg-dark">Password will be sent to your email</h4>
 					<h4><span class="text-danger bg-dark">For login problem/email not received call 0261-2208715 (ServerRoom)</span><br>
 					<span class="text-warning bg-dark">For course related inquiry call 0261-2208349 (Establishment Section)</span></h4>
 				</form>
