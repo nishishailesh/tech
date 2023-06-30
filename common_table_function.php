@@ -1922,14 +1922,14 @@ function run_query($link,$db,$sql)
 	else
 	{
 		return $result;
-	}	
+	}
 }
 
 function result_count($result)
 {
 	if(!$result)
 	{
-		return false;
+		return 0;
 	}
 	else
 	{
@@ -2051,15 +2051,23 @@ function read_datetime($name,$id,$include,$default='',$readonly='')
 
 function verify_ap_user($du,$dp,$role,$ud,$ut,$uf,$uv,$pf,$pv)
 {
-	$expirydate_field=$GLOBALS['expirydate_field'];
+    $expirydate_field=$GLOBALS['expirydate_field'];
 	
     $link=get_link($du,$dp,$role);
     $sql='select * from `'.$ut.'` where `'.$uf.'` = \''.$uv.'\'';
     $result=run_query($link,$ud,$sql);
     if($result===FALSE){echo mysqli_error($link);return false;}
+    if(result_count($result)<1)
+	{
+	echo 'Application user not verified. No such user';return false;
+	return false;
+	}
     $result_array=get_single_row($result);
     //echo $pf.'=>'.$result_array[$pf].'=>'.$pv;
-    if(!password_verify($pv,$result_array[$pf])){echo 'Application user not verified';return false;}
+    if(!password_verify($pv,$result_array[$pf]))
+	{
+		echo 'Application user not verified. Password not verified';return false;
+	}
     
     if(strtotime($result_array[$expirydate_field]) < strtotime(date("Y-m-d")))
     {
@@ -2776,8 +2784,8 @@ function pdf_head()
 	echo '<table >
 	<tr><br>
 	  <td width="20%"> <img src="college_logo.jpg" alt="college logo"><br> </td>
-	  <td width="60%" align="center"><h3><br> Online application<br> 35th Lab/X-Ray Technician <br>
-	                         Training course(2022-23)<br>
+	  <td width="60%" align="center"><h3><br> Online application<br> 36th Lab/X-Ray Technician <br>
+	                         Training course(2023-24)<br>
 	                     Government Medical College Surat</h3>
 	  </td>
 	  <td width="20%"border="1" align="center"><h4><br><br><br>Self Attested<br> photograph</h4></td>
@@ -2938,7 +2946,7 @@ function help()
 					<hr>
 					<p>
 					<h5 class="bg-primary rounded">Authority Application</h5><div class="bg-warning">
-					"I <b>[Applicant Name]</b> authorize my representative <b>[Representative Name]</b> to deliver my application for 32nd Lab/XRay Tech Training course at GMC Surat. My representative also carries his/her identification proof, all required apllication and original documents. </p><p>His/Her signature is as follows: <b>[Signature of Representative]</b>.
+					"I <b>[Applicant Name]</b> authorize my representative <b>[Representative Name]</b> to deliver my application for 36th Lab/XRay Tech Training course at GMC Surat. My representative also carries his/her identification proof, all required apllication and original documents. </p><p>His/Her signature is as follows: <b>[Signature of Representative]</b>.
 					</p>
 					<p><b>[Signature of Applicant]</b></p>
 					<p><b>[Name of Applicant]</b></p>

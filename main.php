@@ -94,17 +94,34 @@ if($action!='print_pdf')
 echo '<span class="badge badge-danger"><h5>Note:-</h5></span><h5 class="text-danger border border-primary rounded">For Laboratory technician course, BSc in Chemistry, Biochemistry, Microbiology or Biotechnology is essential. 
 Applicant who have done BSc in any other subject are not eligible for Laboratory Technician Course.
 For XRay technician course, BSc in any subject is acceptable, however, applicant with BSc in Physics are given preference</h5>'; 
+echo '<span class="bg-warning"><h5 class="bg-warning">Read Instructions->General carefully before filling application. For filling Marks/SGPA read instruction 13.</h5></span>';
 }
 if($action=='save')
 {
-	if(!is_application_verified($link,$d,$_POST['id']))
-	{
+	//if(!is_application_verified($link,$d,$_POST['id']))
+	//{
+
+$mrk=array("final_year_marks_obtained",
+"final_year_marks_max",
+"final_year_SGPA",
+"5th_sem_marks_obtained",
+"5th_sem_marks_max",
+"6th_sem_marks_obtained",
+"6th_sem_marks_max",
+"5th_sem_SGPA",
+"6th_sem_SGPA"
+);
+
+foreach($mrk as $m)
+{
+	if(strlen($_POST[$m])==0){$_POST[$m]=0;}
+}
 		save($link,$d,$t,$_POST,$_FILES);
-	}
-	else
-	{
-		echo '<h3>Application verified. Can not be changed. Contact office if required</h3>';
-	}
+	//}
+	//else
+	//{
+	//	echo '<h3>Application verified. Can not be changed. Contact office if required</h3>';
+	//}
 	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);	
 }
 elseif($action=='insert')
@@ -129,10 +146,10 @@ elseif($action=='delete')
 {
 	delete($link,$d,$t,$pka);
 	$ar=array('id'=>$_SESSION['login']);
-	$sql_app='insert into application (id,mobile)
+	$sql_app='insert into application (id,email)
 							values(\''.$ar['id'].'\',\''.$ar['id'].'\')
 							on duplicate key update
-							mobile=\''.$ar['id'].'\'';
+							email=\''.$ar['id'].'\'';
 	$result=run_query($link,'tech',$sql_app);
 	edit($link,$d,$t,$GLOBALS['default'],$GLOBALS['default']);
 }
@@ -202,6 +219,9 @@ elseif($action=='print_label')
 
 function is_application_verified($link,$d,$application_id)
 {
+
+return false;
+
 	$sql='select * from verification where id=\''.$application_id.'\'';
 	$result=run_query($link,$d,$sql);
 	$ar=get_single_row($result);

@@ -2,12 +2,12 @@
 //exit(0);
 //echo ' Last date over. This  application is closed.';
 //exit(0);
-echo '<p class="text-center">Online Registration and Application is open on only between 2022-07-10 at 11:00 AM to 2022-07-18 17:00</p>';
 //echo '<h1 style="color:red">If you apply before prescribed time, your application will be deleted on 2022-07-10 11:00 AM</h1>';
 
 $date_now = new DateTime();
-$date2 = new DateTime("2022-07-10 11:00");
-$date3 = new DateTime("2022-07-18 17:00");
+$date2 = new DateTime("2023-06-27 11:00");
+$date3 = new DateTime("2023-07-18 17:00");
+echo '<p class="text-center">Online Registration and Application is open on only between '.$date2->format('Y-m-d H:i').' and '.$date3->format('Y-m-d H:i').'</p>';
 //print_r($date_now);
 //print_r($date2);
 if($date_now>=$date2 and $date_now<=$date3)
@@ -18,11 +18,10 @@ else
 {
 	echo '<div class="col-sm-8 mx-auto">
               	<div class="text-info text-center">
-                	<h3><b>Online application for 35th Lab/X-Ray Technician Training course(2022-23)<br>Government Medical College Surat</b></h3>
+                	<h3><b>Online application for 36th Lab/X-Ray Technician Training course(2023-24)<br>Government Medical College Surat</b></h3>
                 </div>';
 
-	echo 'Online Registration and Application is open on only between 2022-07-10 at 11:00 AM to 2022-07-18 17:00';
-	//echo '<h1 style="color:red">If you apply before prescribed time, your application will be deleted on 2022-07-10 11:00 AM</h1>';
+	echo '<p class="text-center">Online Registration and Application is open on only between '.$date2->format('Y-m-d H:i').' and '.$date3->format('Y-m-d H:i').'</p>';
 	exit(0);
 }
 
@@ -69,7 +68,7 @@ if(isset($_GET['message']))
 
 echo'<div class="row">
 			<div class="col-sm-4 bg-light mx-auto">';
-					
+
 		echo'<div class="row">
 					<div class="col-sm-12 bg-light mx-auto bordered bordered-dark">
 						<form method=post action=start.php>
@@ -134,10 +133,10 @@ echo '<div class="col-sm-4 bg-dark mx-auto">';
 					<div class="form-group">
 						<button class="btn btn-info btn-block" type=submit name=action value=register_email>Send Password by email</button>
 					</div>
-					<h4 class="text-info bg-dark">email will be your login ID</h4>
-					<h4 class="text-info bg-dark">Password will be sent to your email</h4>
-					<h4><span class="text-danger bg-dark">For login problem/email not received call 0261-2208715 (ServerRoom)</span><br>
-					<span class="text-warning bg-dark">For course related inquiry call 0261-2208349 (Establishment Section)</span></h4>
+					<h4 class="text-info bg-dark">1. email will be your login ID</h4>
+					<h4 class="text-info bg-dark">2. Password will be sent to your email within 10 minutes.</h4>
+					<h4><span class="text-danger bg-dark">3. For login problem/email not received call 0261-2208715 (ServerRoom)</span><br>
+					<span class="text-warning bg-dark">4. For course related inquiry call 0261-2208349 (Establishment Section)</span></h4>
 				</form>
 			</div>
 		</div>';

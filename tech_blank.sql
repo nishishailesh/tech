@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.5.15-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.19  Distrib 10.5.11-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: tech
 -- ------------------------------------------------------
--- Server version	10.5.15-MariaDB-0+deb11u1
+-- Server version	10.5.11-MariaDB-1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,15 +35,15 @@ CREATE TABLE `application` (
   `sex` enum('M','F','O') DEFAULT NULL,
   `bsc` enum('Biochemistry','Chemistry','Biotechnology','Microbiology','Physics','Other') DEFAULT NULL,
   `university` varchar(100) DEFAULT NULL,
-  `final_year_marks_obtained` int(11) DEFAULT NULL,
-  `final_year_marks_max` int(11) DEFAULT NULL,
-  `final_year_SGPA` float DEFAULT NULL,
-  `5th_sem_marks_obtained` int(11) DEFAULT NULL,
-  `5th_sem_marks_max` int(11) DEFAULT NULL,
-  `6th_sem_marks_obtained` int(11) DEFAULT NULL,
-  `6th_sem_marks_max` int(11) DEFAULT NULL,
-  `5th_sem_SGPA` float DEFAULT NULL,
-  `6th_sem_SGPA` float DEFAULT NULL,
+  `final_year_marks_obtained` decimal(10,0) DEFAULT NULL,
+  `final_year_marks_max` decimal(10,0) DEFAULT NULL,
+  `final_year_SGPA` decimal(10,4) DEFAULT NULL,
+  `5th_sem_marks_obtained` decimal(10,0) DEFAULT NULL,
+  `5th_sem_marks_max` decimal(10,0) DEFAULT NULL,
+  `6th_sem_marks_obtained` decimal(10,0) DEFAULT NULL,
+  `6th_sem_marks_max` decimal(10,0) DEFAULT NULL,
+  `5th_sem_SGPA` decimal(10,4) DEFAULT NULL,
+  `6th_sem_SGPA` decimal(10,4) DEFAULT NULL,
   `_photo_id_proof` mediumblob DEFAULT NULL,
   `_photo_id_proof_name` varchar(60) DEFAULT NULL,
   `_date_of_birth_proof` mediumblob DEFAULT NULL,
@@ -243,4 +243,4 @@ CREATE TABLE `xraycode` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-15 19:17:55
+-- Dump completed on 2023-07-01  1:26:34
